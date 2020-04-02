@@ -1,0 +1,19 @@
+1. Чтобы мобильное меню не обрезалось необходимо на само меню с ссылками дать overflow: auto;
+overflow: hidden; height: 100vh;
+2. Что бы при открытом меню (бургер) не скролился контент страницы необходимо при клике на сам 
+бургер добавить на body класс, в котором задать overflow: hidden; (только для определённого breakpoint) 
+
+function initNotScrollBody() {
+	$(".navbar-toggler").click(function(event) {
+		$("body").toggleClass("lock");
+	});
+};
+
+body.lock {
+ @include media-breakpoint-down(md) {
+  overflow: hidden;
+ }
+}
+
+3. Если header обладает свойством position: fixed, то необходим плагин для правильного отображения
+header при скроле страницы. Плагин найти в js-bilder под именем fixed scroll block.

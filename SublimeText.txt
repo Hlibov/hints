@@ -1,0 +1,31 @@
+Шпаргалка ниндзя Sublime Text 3 - https://nicothin.pro/sublime-text/sublime-text-3-hotkeys.html
+
+Горячии клавиши: Preferences>Key Birdings
+
+Для установки плагинов в автомвтическом режиме: Ctrl+Shift+P прописываем instal выбераем Package Control и в поиске ищем нужный плагин.
+
+Для установки плагинов в ручном режиме следует скачать плагин (сайт с дополнениями - https://packagecontrol.io/) и распоковать его здесь: C:\USERS\твоё имя пользователя\APPDATA\ROAMING\SUBLIME TEXT 3\PACKAGES
+
+Для просмотра установленных плагинов Preferences -> Package Settings или Preferences -> Package Control и прописуем команду List Packages
+
+Плагины:
+EMMET/ ускоряет запись кода при помощи сокращённого метода набора Шпаргалка по emmet - http://docs.emmet.io/cheat-sheet/
+Auto File Name / позволяет выберать путь к картинкам из редактора
+Bracket Highliter / подсветка начальных и конечных элементов
+Color Highliter / окрашивает значение свойств цвета в тотже цвет
+GoTo-CSS-Declaration / автопоиск выделенного класса в html в css (вызывается при помощи гор. клавиш): 
+---------Горячии клавиши следует задавать в Preferences>Key Birdings. В окне Default-User прописываем:
+[
+	{ "keys": ["ctrl+1"], "command": "goto_css_declaration", 
+		"args": {"goto": "next"}
+	}
+]
+
+TAG / быстрое копирование классов из html в css (горячие клавиши Ctrl+` т.е. буква ё)
+Плагин Tag нахится в это же папке и произвести установку в ручном режиме (смотри выше)
+---------Горячии клавиши следует задавать в Preferences>Key Birdings. В окне Default-User прописываем:
+[
+{"keys": ["ctrl+`"], "command": "tag_classes"}
+]
+
+All Autocomplete / при создании классов предлогает список из раннее созданных классов
