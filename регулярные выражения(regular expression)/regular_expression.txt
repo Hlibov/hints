@@ -1,0 +1,113 @@
+1. Пошук слова у рядку з використанням метода test
+ let myString = "Hello, World!"; //рядок в якому здійснюється пошук
+ let myRegex = /Hello/; //шукаємоє слово
+ let result = myRegex.test(myString);
+ console.log(result); //якщо буде true тоді слово знайдено
+
+2. Пошук одночасно декількох слів за допомогою оператора або | з використанням метода test
+ let petString = "James has a pet cat."; //рядок в якому здійснюється пошук
+ let petRegex = /dog|cat|bird|fish/; //шукаємі слова
+ let result = petRegex.test(petString);
+ console.log(result); //якщо буде true тоді слово знайдено
+
+3. Пошук слова без врахування верхнього або нижнього регистру з використанням метода test
+ let myString = "freeCodeCamp"; //рядок в якому здійснюється пошук
+ let fccRegex = /freecodecamp/i; // шукаємо слово, оператор i дозволяє незважати на регистри
+ let result = fccRegex.test(myString);
+ console.log(result); //якщо буде true тоді слово знайдено
+
+4. Пошук слова у рядку з використанням метода match
+ let extractStr = "Extract the word 'coding' from this string."; //рядок в якому здійснюється пошук
+ let codingRegex = /coding/; //шукаємоє слово
+ let result = extractStr.match(codingRegex);
+console.log(result); // вертає масив зі знайденим словом [coding]
+
+5. Пошук слова у рядку більше ніж один раз з використанням метода match
+ let twinkleStar = "Twinkle, twinkle, little star"; //рядок в якому здійснюється пошук
+ let starRegex = /twinkle/gi; // ключ g потрібен для пошуку слова більше ніж один раз, ключ i - для відключення пошуку за регістром
+ let result = twinkleStar.match(starRegex);
+ console.log(result); // вертає масив зі знайденим словом ['Twinkle', 'twinkle']
+
+6. Пошук слова з використанням символу підстановки . - це крапка
+ let exampleStr = "Let's have fun with regular expressions!"; //рядок в якому здійснюється пошук
+ let unRegex = /.un/; // символ "." заміняє любу літеру
+ let result = unRegex.test(exampleStr);
+ console.log(result); //якщо буде true тоді слово знайдено
+
+7. Пошук усіх літер (a, e, i, o, u) у рядку з використанням класів символів []
+ let quoteSample = "Beware of bugs in the above code; I have only proved it correct, not tried it."; //рядок в якому здійснюється пошук
+ let vowelRegex = /[aeiou]/g; // пошук усіх літер (a, e, i, o, u), ключ g наказує шукати усі співпадання
+ let result = quoteSample.match(vowelRegex);
+ console.log(result); // вертає масив зі знайденими літерами ['e', 'a', 'e', 'o', 'u', 'i', 'e', 'a', 'o', 'e', 'o', 'e', 'a', 'e', 'o', 'o', 'e', 'i', 'o', 'e', 'o', 'i', 'e', 'i']
+
+8. Пошук усіх літер абетки у рядку з використанням класів символів [a-z]
+ let quoteSample = "The quick brown fox jumps over the lazy dog."; //рядок в якому здійснюється пошук
+ let alphabetRegex = /[a-z]/gi; // пошук усіх літер (a, e, i, o, u), ключ g наказує шукати усі співпадання, ключ i наказуе чукати усі співпаддіння незважаючи на регистр літер
+ let result = quoteSample.match(vowelRegex);
+ console.log(result); // вертає масив зі знайденими літерами ['T', 'h', 'e', 'q', 'u', 'i', 'c', 'k', 'b', 'r', 'o', 'w', 'n', 'f', 'o', 'x', 'j', 'u', 'm', 'p', 's', 'o', 'v', 'e', 'r', 't', 'h', 'e', 'l', 'a', 'z', 'y', 'd', 'o', 'g']
+
+9. Пошук літер та номерів у рядку з використанням класів символів []
+ let jennyStr = "Jenny8675309"; //рядок в якому здійснюється пошук
+ let myRegex = /[a-z0-9]/ig; // пошук літер та номерів, ключ g наказує шукати усі співпадання, ключ i наказуе чукати усі співпаддіння незважаючи на регистр літер
+ let result = jennyStr.match(myRegex);
+ console.log(result); // вертає масив зі знайденими літерами та номерами
+
+10. Отримання усіх символів окрім зазначених [^ie]
+ let quoteSample = "3 blind mice."; //рядок в якому здійснюється пошук
+ let myRegex = /[^3ie]/gi; // отримання усіх символів окрім деяких що зазначені, ключ g наказує шукати усі співпадання, ключ i наказуе чукати усі співпаддіння незважаючи на регистр літер
+ let result = quoteSample.match(myRegex);
+ console.log(result); // вертає масив зі знайденими літерами та номерами
+
+11. Необхідно написати умови при яких буде застосовано обмеження на створення нових імен користувачів.
+	Ось умови:
+	1. ім'я не може починатись з цифри (5hlib)
+	2. ім'я не можно містить лише з однієї літери (h)
+	3. ім'я може містить великі літери (hlibHlibov)
+	4. ім'я не може містить лише цифри (0007)
+	5. якщо ім'я містить лише два знаки то другий знак не може бути цифрою (а1)
+	6. якщо в імені присутні цифри то вони можуть бути лише у кінці імені (R23, Hlib07)
+	7. ім'я не повинно містить спеціальні символи таки як (!%#@-)    
+
+Для вирешення цього завдання є два варіанти запису:
+ 1.	let username = "JackOfAllTrades";
+	let userCheck = /^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i; //варіант1
+	let result = userCheck.test(username);
+	console.log(result);
+
+ 2.	let username = "JackOfAllTrades";
+	const userCheck = /^[a-z]([0-9]{2,}|[a-z]+\d*)$/i; //варіант2
+	let result = userCheck.test(username);
+	console.log(result);
+
+	де:
+
+	^ - start of input
+	[a-z] - first character is a letter
+	\d*$ - input ends with 0 or more digits
+	| - or
+	^[a-z] - first character is a letter
+	\d\d+ - following characters are 2 or more digits
+	$ - end of input
+	[0-9]{2,} - ends with two or more numbers
+	[a-z]+ - has one or more letters next
+	\d* - and ends with zero or more numbers
+	i - ignore case of input
+	
+	та ще:
+	\s - пробіл
+	\S - все крім пробілу
+	\w - всі літери та цифри тобто [a-z][A-Z][0-9]
+	\W - всі знаки крім літер та цифр
+	\n - нова строка
+	{2,4} - кількість симолів від 3 до 4
+	? - снак можливості, тобто  	let american = "color";
+					let british = "colour";
+					let rainbowRegex= /colou?r/;
+					rainbowRegex.test(american);	//true
+					rainbowRegex.test(british);	//true
+
+	/(?=\w{3,}\d{1})/ - умова яка потребує від трьох символів і більше та однієї цифри.
+			    Таких умов можно записувати декілька
+				let sampleWord = "astronaut1";
+				let pwRegex = /(?=\w{3,}\d{1})(?=\D+)/; // ?=\D+ каже про те що всі символи не повинні бути цифрами
+				let result = pwRegex.test(sampleWord);

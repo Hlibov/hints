@@ -1,0 +1,17 @@
+
+
+
+Настройка динамического изменения сайта из админки!
+
+Настраиваем заголовок и логотип сайта:
+1. Заходим в панель администрирования (дописуем в адресной строке wp-admin) как здесь https://i.imgur.com/E3ZAXpb.png
+2. Далее переходим сюда https://i.imgur.com/rWJ4wuJ.png и потом сюда https://i.imgur.com/cZTbEa6.png
+3. Для того чтобы можно было менять логотип в админке необходимо включить поддержку custom-logo в теме.
+Требуется подключить "add_theme_support('custom-logo');" в файле functions.php  https://i.imgur.com/QV8cVIM.png
+Если пререзагрузить админку то мы увидем новое поле для добавления логотипа https://i.imgur.com/R5ady0s.png
+4. Далее в админ панели загружаем картинку с логотипом (svg формат ранее не поддерживался) https://i.imgur.com/7gFB4L3.png и затем нажать кнопку опубликовать https://i.imgur.com/NaGXFiI.png
+5. Заходим в header.php и меняем код для логотипа было https://i.imgur.com/kjSN9in.png стало https://i.imgur.com/ohMvrF9.png
+Новый код вставляет уже готовую ссылку с адресом перехода на главную страницу. Поэтому уже существующую ссылку надо переделать на div как тут было https://i.imgur.com/aYppSHN.png стало https://i.imgur.com/FgIymYP.png
+!Но есть иной метод где мы отдельно прописываем код для картинки и код для сасой ссылки без изменения самой структуры html (в этом случае не нужно менять тег а на div) было https://i.imgur.com/aYppSHN.png стало https://i.imgur.com/net70f5.png
+6. Тоже самое не забываем делаем с логотипом в footer.php было https://i.imgur.com/uaaei1E.png стало https://i.imgur.com/BCO3KdH.png
+7. Для динамики <title> меняем следующее было https://i.imgur.com/Uzpj9y4.png стало https://i.imgur.com/3A8qCQO.png

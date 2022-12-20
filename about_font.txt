@@ -26,7 +26,8 @@ font-weight:
 500 - medium
 600 - semibold
 700 - bold
-900 - black
+800 - Extra Bold (Ultra Bold) 
+900 - Black (Heavy)
 
 
 Свойства текста

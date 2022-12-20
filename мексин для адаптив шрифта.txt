@@ -1,0 +1,12 @@
+🔴 UPD упрощенная формула (медиа запрос не нужен):
+font-size: calc(МИН.ШРИФТpx + (МАКС.ШРИФТ - МИН.ШРИФТ) * ((100vw - 320px) / (MAX.WIDTH.WINDOW - 320)));
+
+SCSS Миксин:
+
+//responsive font
+
+@mixin adaptiv-font($maxFontSize, $minFontSize, $maxWidthSizeWindow) {
+ $addSize: $maxFontSize - $minFontSize;
+ $maxWidthWindow: $maxWidthSizeWindow - 320;
+ font-size: calc(#{$minFontSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthWindow}));
+}

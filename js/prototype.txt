@@ -1,0 +1,83 @@
+//Прототипирование ES5
+
+//инициалицируем класс Animal к которому присваиваем функцию конструктор
+const Animal = function(options) {
+  this.name = options.name
+  this.color = options.color
+}
+
+//к классу Animal прикрепляем прототип - метод voice (такую запись прототипа можно переписать)
+Animal.prototype.voice = function() {
+  console.log('Base voice from', this.name)
+}
+
+
+//создаём экземпляр от класса Animal
+const dog = new Animal({
+  name: 'Rex',
+  color: '#000'
+});
+
+
+//вызываем метод voice у экземпляра dog (т.к. класс Animal является конструктором экземпляра dog, а
+//метод voice является прототипом класса Animal - метод voice срабатывае у экземпляра dog)
+dog.voice()
+console.log(dog)
+
+//инициалицируем класс Cat к которому присваиваем функцию конструктор
+const Cat = function(options) {
+  //переносим контестк класса Animal в конструктор класса Cat
+  Animal.apply(this, arguments);
+  //наполнение самого конструктора класса Cat
+  this.hasTail = options.hasTail;
+  this.type = 'cat';
+
+//переопределяем прототип класса Cat на прототип класса Animal
+Cat.prototype = Object.create(Animal.prototype);
+
+//переопределяем прототип конструктор класса Cat на правильное имя Cat ( а было Animal)
+Cat.prototype.constructor = Cat;
+
+//создаём экземпляр от класса Cat
+const cat = new Cat({name: 'Murzik', color: '#000', hasTail: true})
+console.log(cat)
+
+
+
+//СОВРЕМЕННЫЙ СИНТАКСИС ПРОТОТИПИРОВАНИЯ
+
+//создаём класс Animal
+class Animal {
+  //конструктор класса
+  constructor(options) {
+    this.name = options.name
+    this.color = options.color
+  }
+
+  //в прототип класса добавляем метод voice
+  voice() {
+    console.log('Base voice from ' + this.name)
+  }
+}
+
+//класс Cat наследует класс Animal
+class Cat extends Animal {
+  //конструктор класса Cat
+  constructor(options) {
+    //наследование прототипов класса Animal
+    super(options)
+    //определение аргументов
+    this.hasTail = options.hasTail
+    this.type = 'cat'
+  }
+}
+
+//создание экземпляра от класса Animal
+const dog = new Animal({name: 'Rex', color: 'white'})
+
+//создание экземпляра от класса Cat
+const cat = new Cat({name: 'Murzik', color: 'black', hasTail: true})
+
+console.log(dog)
+console.log(cat)
+cat.voice()

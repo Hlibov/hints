@@ -1,0 +1,28 @@
+.rating-block {
+    $this: &;
+    position: relative;
+
+    &__list-items {
+        @extend %listreset;
+
+        display: flex;
+    }
+
+    &__item {
+
+        & +  #{$this}__item {
+            margin-left: 3px;
+        }
+    }
+
+    &__icon-star {
+        font-size: 14px;
+    }
+
+    &__full-holder {
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+    }
+}
