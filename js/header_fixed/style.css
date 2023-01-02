@@ -1,0 +1,8 @@
+#header.fixed-position {
+    position: fixed;
+    transform: translateY(0);
+}
+
+#header.hidden-position {
+    transform: translateY(-100%);
+}

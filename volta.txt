@@ -1,0 +1,4 @@
+https://volta.sh/
+
+volta pin node@12.20   -вибір версії ноди
+volta install node@14  -встановлення останьої версії ноди з 14-ї
