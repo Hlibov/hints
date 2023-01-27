@@ -107,7 +107,17 @@ console.log(result); // вертає масив зі знайденим слов
 					rainbowRegex.test(british);	//true
 
 	/(?=\w{3,}\d{1})/ - умова яка потребує від трьох символів і більше та однієї цифри.
-			    Таких умов можно записувати декілька
+			   
+	Таких умов можно записувати декілька
 				let sampleWord = "astronaut1";
 				let pwRegex = /(?=\w{3,}\d{1})(?=\D+)/; // ?=\D+ каже про те що всі символи не повинні бути цифрами
 				let result = pwRegex.test(sampleWord);
+
+
+Функція заміни .replace()
+
+let wrongText = "The sky is silver.";
+let silverRegex = /silver/;
+wrongText.replace(silverRegex, "blue");
+
+також можливо зробити групову заміну "Code Camp".replace(/(\w+)\s(\w+)/, '$2 $1'); //"Camp Code"
